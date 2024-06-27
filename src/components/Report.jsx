@@ -1,3 +1,4 @@
+import { MdOutlineFileUpload } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 import useApiHandle from "../utils/useApiHandler";
 import * as URL from "../utils/ConstantUrl";
@@ -34,6 +35,9 @@ const Report = () => {
               <th scope="col" className="px-6 py-3">
                 Status
               </th>
+              <th scope="col" className="px-6 py-3">
+                Upload
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -57,6 +61,12 @@ const Report = () => {
                     ></span> */}
                     Completed
                   </span>
+                </td>
+                <td className="px-6 py-4">
+                  <MdOutlineFileUpload
+                    size={20}
+                    className=" hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                  />
                 </td>
               </tr>
             ))}

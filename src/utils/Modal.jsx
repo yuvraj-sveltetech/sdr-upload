@@ -22,7 +22,7 @@ const Modal = ({ isOpen, toggleModal, body, heading }) => {
         >
           <div className="relative p-4 w-full max-w-2xl max-h-full">
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <div className="flex items-center justify-between p-3 border-b rounded-t dark:border-gray-600">
+              <div className="flex items-center justify-between p-3fil border-b rounded-t dark:border-gray-600">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                   {heading}
                 </h3>
