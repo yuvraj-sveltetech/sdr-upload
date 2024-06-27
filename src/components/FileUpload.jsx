@@ -20,6 +20,9 @@ const FileUpload = () => {
       setIsOpen(false);
       setFiles([]);
       toast.success("Files Uploaded!");
+    } else {
+      setFiles([]);
+      setIsOpen(false);
     }
   }, [status_code, data]);
 
