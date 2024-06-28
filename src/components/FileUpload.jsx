@@ -127,10 +127,10 @@ const FileUpload = () => {
                 name="operator"
                 onChange={(e) => setOperator(e.target.value)}
               >
-                <option value="airtel">Airtel</option>
-                <option value="jio">Jio</option>
-                <option value="vi">VI</option>
-                <option value="bsnl">BSNL</option>
+                <option value="AIRTEL">Airtel</option>
+                <option value="JIO">Jio</option>
+                <option value="VI">VI</option>
+                <option value="BSNL">BSNL</option>
               </select>
 
               <button
