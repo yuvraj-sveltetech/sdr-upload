@@ -54,6 +54,9 @@ const Report = () => {
                 Operator
               </th>
               <th scope="col" className="px-6 py-3">
+  Table Name
+                </th>
+              <th scope="col" className="px-6 py-3">
                 Process Status
               </th>
               <th scope="col" className="px-6 py-3">
@@ -75,6 +78,7 @@ const Report = () => {
                   {list?.name}
                 </th>
                 <td className="px-6 py-4">{list?.operator_name}</td>
+                <td className="px-6 py-4">{list?.table_name?.map((item)=>(item))}</td>
                 <td className="px-6 py-4">
                   <span className="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3">
                     {/* <span
