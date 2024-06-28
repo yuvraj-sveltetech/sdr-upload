@@ -6,16 +6,37 @@ import * as URL from "../utils/ConstantUrl";
 const Report = () => {
   const { data, apiCall, status_code } = useApiHandle();
   const [report, setReport] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [processId, setProcessId] = useState("");
 
   useEffect(() => {
     if (status_code === 200 && data?.data?.length > 0) {
       setReport([...data?.data]);
+    }
+    if (status_code === 200 && data?.message == "File already processed") {
+      setIsLoading(false);
+      setProcessId("");
+    }
+    if (status_code === 201) {
+      setIsLoading(false);
+      setProcessId("");
+      apiCall("get", `${URL.REPORT_LIST}`, {});
+    }
+    if (status_code === undefined ||status_code === "" ) {
+      setIsLoading(false);
+      setProcessId("");
     }
   }, [status_code, data]);
 
   useEffect(() => {
     apiCall("get", `${URL.REPORT_LIST}`, {});
   }, []);
+
+  const processFIle = (e, id) => {
+    setIsLoading(true);
+    setProcessId(id);
+    apiCall("post", `${URL.PROCESS_FILE}${id}/`, {});
+  };
 
   return (
     <div className="h-[100vh]">
@@ -33,10 +54,10 @@ const Report = () => {
                 Operator
               </th>
               <th scope="col" className="px-6 py-3">
-                Status
+                Process Status
               </th>
               <th scope="col" className="px-6 py-3">
-                Upload
+                Action
               </th>
             </tr>
           </thead>
@@ -59,14 +80,19 @@ const Report = () => {
                     {/* <span
                       className={`flex w-2.5 h-2.5 rounded-full me-1.5 flex-shrink-0 bg-yellow-600`}
                     ></span> */}
-                    Completed
+                    {list?.process_status ? "Completed" : "InComplete"}
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <MdOutlineFileUpload
-                    size={20}
-                    className=" hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
-                  />
+                  {isLoading && processId == list.id ? (
+                    "Processing"
+                  ) : (
+                    <MdOutlineFileUpload
+                      onClick={(e) => processFIle(e, list.id)}
+                      size={20}
+                      className=" hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                    />
+                  )}
                 </td>
               </tr>
             ))}
