@@ -9,7 +9,7 @@ import axios from "axios";
 
 const FileUpload = () => {
   const { data, apiCall, status_code } = useApiHandle();
-  const [operator, setOperator] = useState("airtel");
+  const [operator, setOperator] = useState("AIRTEL");
   const [files, setFiles] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
