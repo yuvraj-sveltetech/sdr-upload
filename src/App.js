@@ -8,7 +8,7 @@ import {
 import FileUpload from "./components/FileUpload";
 import Layout from "./Layout";
 import PrivateRoute from "./PrivateRoute";
-import Report from "./components/Report";
+import Report from "./components/Report/Report";
 import { ToastContainer } from "react-toastify";
 
 function App() {

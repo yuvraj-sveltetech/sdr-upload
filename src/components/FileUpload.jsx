@@ -5,6 +5,7 @@ import useApiHandle from "../utils/useApiHandler";
 import * as URL from "../utils/ConstantUrl";
 import Modal from "../utils/Modal";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const FileUpload = () => {
   const { data, apiCall, status_code } = useApiHandle();
@@ -21,8 +22,8 @@ const FileUpload = () => {
       setFiles([]);
       toast.success("Files Uploaded!");
     } else {
-      setFiles([]);
-      setIsOpen(false);
+      // setFiles([]);
+      // setIsOpen(false);
     }
   }, [status_code, data]);
 
@@ -43,6 +44,7 @@ const FileUpload = () => {
     }
 
     setIsOpen(true);
+
     const formData = new FormData();
 
     files?.forEach((file) => {

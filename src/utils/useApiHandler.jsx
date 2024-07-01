@@ -19,7 +19,10 @@ const useApiHandle = () => {
     const axiosInstance = axios.create({
       baseURL: baseUrl,
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type":
+          payload instanceof FormData
+            ? "multipart/form-data"
+            : "application/json",
         Authorization: accessToken,
       },
       signal,
@@ -33,6 +36,7 @@ const useApiHandle = () => {
           payload instanceof FormData
             ? payload
             : { ...config.data, ...payload };
+
         if (localStorage.getItem("auth_token")) {
           config.headers["Authorization"] = `Bearer ${localStorage.getItem(
             "auth_token"
