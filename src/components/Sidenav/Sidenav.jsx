@@ -1,4 +1,4 @@
-import { TbReportAnalytics } from "react-icons/tb";
+import { TbReportAnalytics, TbUserSearch } from "react-icons/tb";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
