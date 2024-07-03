@@ -14,15 +14,10 @@ const Login = () => {
 
   const signIN = (e) => {
     e.preventDefault();
-    console.log(
-      process.env.REACT_APP_EMAIL,
-      login,
-      process.env.REACT_APP_PASSWORD
-    );
 
     if (
       login.email === process.env.REACT_APP_EMAIL &&
-      login.password === process.env.REACT_APP_PASSWORD
+      login.password === "$dr@1234"
     ) {
       localStorage.setItem("auth_token", process.env.REACT_APP_AUTH_TOKEN);
       navigate("/file-upload");
