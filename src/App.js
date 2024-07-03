@@ -10,6 +10,7 @@ import Layout from "./Layout";
 import PrivateRoute from "./PrivateRoute";
 import Report from "./components/Report/Report";
 import { ToastContainer } from "react-toastify";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
       <Router>
         <Layout>
           <Routes>
+            <Route path="/" element={<Login />} />
             <Route element={<PrivateRoute />}>
-              <Route
+              {/* <Route
                 path="/"
                 element={<Navigate to="/file-upload" replace />}
-              />
+              /> */}
               <Route path="/file-upload" element={<FileUpload />} />
               <Route path="/report" element={<Report />} />
             </Route>
